@@ -1,0 +1,138 @@
+-- 1. Count the number of employees in each department
+select department_id, count(*) as total_employees
+from hr.employees
+group by department_id
+
+it will find the table on which it has to run the qurey, 
+then it will groups the departments ( how many depts are there in table) 
+then will do agg of them and will count the no of emp in that dept and then will select the 
+department_id and number of Employees
+
+_______________________________________________________________________
+
+
+-- 2. Find the average salary in each department
+select department_id, avg(salary) as avg_salary
+from hr.employees
+group by department_id
+
+it will go to emp table tehn grp the depts then take avg of salaries
+then select dept_id and avg_salary and show the result
+
+_______________________________________________________________________
+-- 3. Find the maximum and minimum salary in each department
+select department_id, max(salary) as max_salary ,min(salary) as min_salary
+from hr.employees
+group by department_id
+
+it will find the table name
+then create groups of various departments then 
+it will find the min and max salaries for each department then
+select and display
+________________________________________________________________________
+
+-- 4. Find the total salary paid in each department
+select department_id , sum(salary) as total_salary from hr.employees
+group by department_id
+
+it will find that table and take department_id and salary coloum,
+then group it by department id and then for each department it will make sum of the salary
+and show the output
+_______________________________________________________________________
+
+-- 5. Count the number of employees in each job role
+select job_id, count(*) as total_employees
+from hr.employees group by job_id
+
+
+
+______________________________________________________________________
+
+-- 6. Find the average salary for each job role
+
+select job_id, avg(salary) as avg_salary
+from hr.employees group by job_id
+
+____________________________________________________________________
+
+-- 7. Find the maximum salary for each job role
+select job_id, max(salary) as max_salary from hr.employees
+group by job_id
+
+
+___________________________________________________________________
+
+-- 8. Find the minimum salary for each job role
+select job_id, min(salary) as min_salary from hr.employees
+group by job_id
+
+
+
+__________________________________________________________________
+
+-- 9. Find the total salary paid for each job role
+select job_id, sum(salary) as total_salary
+from hr.employees group by job_id
+
+
+
+_________________________________________________________________
+
+-- 10. Count the number of employees hired in each year
+select extract(year from hire_date) as hire_year,
+count(*) as total_employees from hr.employees
+group by extract(year from hire_date)
+order by hire_year
+
+
+_________________________________________________________________
+-- 11. Find the total salary paid in each location
+SELECT d.location_id, SUM(e.salary) AS total_salary
+FROM hr.employees e
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY d.location_id;
+
+
+
+___________________________________________________________________
+
+-- 12. Find the number of employees in each manager's team
+SELECT manager_id, COUNT(*) AS team_size
+FROM hr.employees
+WHERE manager_id IS NOT NULL
+GROUP BY manager_id;
+
+
+get the 
+
+__________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
